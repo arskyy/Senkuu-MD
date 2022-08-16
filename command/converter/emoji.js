@@ -1,0 +1,23 @@
+module.exports = {
+  name: "emoji",
+  alias: ["emo"],
+  category: "converter",
+  async run({msg, conn},{q, args, cmdNya}){
+    if(!args[0]) throw `Example: .${cmdNya} 😭`
+    await msg.reply(respon.wait)
+    try {
+      emo = await sc.emoji(args[0])
+      const packInfo = {
+        packname: "Senkuu BOT",
+	  		author: "Beta✓",
+       };
+       const { sticker } = require("../../lib/convert");
+       const { modStick, createExif } = require("../../lib/exif2");
+       emoji = emo.result
+       st = await sticker(await conn.getBuffer(emoji.whatsapp), {  withPackInfo: true, packInfo, cmdType: "1" });
+       conn.sendMessage(msg.from, { sticker: st}, { quoted: msg});
+    } catch (e){
+      global.error(cmdNya, e, msg)
+    }
+  }
+}
