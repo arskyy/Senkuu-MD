@@ -1,6 +1,7 @@
-# Senkuu-MD
+# Welcome to Sennku MD👋
+
 <div align="center">
-<img src="https://telegra.ph/file/677780c08cc83059ac934.jpg" alt="SEENKU MD" width="300" />
+<img src="https://telegra.ph/file/030aa0d25d99688eab3bb.jpg" alt="SEENKU MD" width="300" />
 
 </p>
 <h1 align="center">Senkuu MD</h1>
