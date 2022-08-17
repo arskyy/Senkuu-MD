@@ -52,8 +52,8 @@ WhatsApp Bot Multi Device
 > pkg install git
 > pkg install ffmpeg && pkg install libwebp
 > pkg install nodejs
-> git clone --depth=1 https://github.com/Rizky878/rzky-multidevice/
-> cd rzky-multidevice
+> git clone --depth=1 https://github.com/xzeera-id/Senkuu-MD
+> cd Senkuu-MD
 > npm install --arch=x64 --platform=linux sharp
 > npm start
 # Scan QR
@@ -113,10 +113,10 @@ pacman -S libwebp
 
 ```bash
 # clone repo
-git clone --depth=1 https://github.com/Rizky878/rzky-multidevice
+git clone --depth=1 https://github.com/xzeera-id/Senkuu-MD
 
 # ubah posisi direktori kamu
-cd rzky-multidevice
+cd Senkuu-MD
 
 # install semua module
 npm install
