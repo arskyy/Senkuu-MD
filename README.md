@@ -1,4 +1,4 @@
-# Welcome to Sennku MD👋
+# Welcome 👋
 
 <div align="center">
 <img src="https://telegra.ph/file/030aa0d25d99688eab3bb.jpg" alt="SEENKU MD" width="300" />
