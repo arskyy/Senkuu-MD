@@ -18,9 +18,6 @@
 -   [x] Mudah untuk dirawat/diperbaiki,
 -   [x] Dan ringan
 
-# Ambil Session Disini
-
-> Buka [ Linknya Disini ](https://replit.com/@zeeoneofc/Session-Md?lita=1&outputonly=1#.replit) 
 
 # Run On Heroku
 
