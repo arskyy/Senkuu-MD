@@ -10,6 +10,7 @@ const IkyyClient = require("ikyy");
 global.rzky = new IkyyClient();
 const Database = require('./lib/Database')
 global.db = new Database()
+global.conns = []
 
 global.printLog = async(isCmd, sender, msg, body, groupName, isGc) => {
 	if(isCmd && isGc) {
