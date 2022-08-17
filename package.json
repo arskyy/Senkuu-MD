@@ -1,7 +1,7 @@
 {
   "name": "senkuu-md",
   "version": "4.1.0",
-  "main": "index.js",
+  "main": "main.js",
   "depecrated": false,
   "author": "Senkuu",
   "scripts": {
