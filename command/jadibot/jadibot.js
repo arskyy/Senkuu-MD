@@ -1,7 +1,7 @@
 module.exports = {
   name: "jadibot",
   alias: ["jadibot"],
-  category: "main",
+  category: "jadibot",
   desc: "Numpang bot",
   isPrivate: true,
   async run({conn, msg},{map}){
