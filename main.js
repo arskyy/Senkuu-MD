@@ -26,8 +26,7 @@ try {
 var { state, saveState } = useSingleFileAuthState(path.join(__dirname, `./lib/database/${config.session ? config.session : "session"}.json`), log({ level: "silent" }));
 } catch {
 fs.unlinkSync(`./lib/database/${config.session ? config.session : "session"}.json`)
-var { state, saveState } = useSingleFileAuthState(
-	`./lib/database/${config.session ? config.session : "session"}.json`);
+var { state, saveState } = useSingleFileAuthState(`./lib/database/${config.session ? config.session : "session"}.json`);
 }
 
 
