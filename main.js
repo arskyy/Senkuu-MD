@@ -1,5 +1,4 @@
 require("./global")
-const attribute = {};
 const fs = require("fs");
 const path = require("path");
 const { Boom } = require("@hapi/boom");
@@ -9,6 +8,7 @@ const moment = require("moment");
 const chalk = require('chalk')
 const figlet = require('figlet')
 const { color } = require("./lib/function")
+const utils = require("./lib/utils");
 
 const {
 	fetchLatestBaileysVersion,
@@ -20,8 +20,6 @@ const {
 	delay,
 } = require("@adiwajshing/baileys");
 
-const utils = require("./lib/utils");
-
 try {
 var { state, saveState } = useSingleFileAuthState(path.join(__dirname, `./lib/database/${config.session ? config.session : "session"}.json`), log({ level: "silent" }));
 } catch {
@@ -31,10 +29,11 @@ var { state, saveState } = useSingleFileAuthState(`./lib/database/${config.sessi
 
 
 moment.locale("id");
-attribute.prefix = ".";
-attribute.uptime = new Date();
-attribute.command = new Map();
-attribute.isSelf = config.self
+const attr = {};
+attr.prefix = ".";
+attr.uptime = new Date();
+attr.command = new Map();
+attr.isSelf = config.self
 
 
 // Store
@@ -94,7 +93,7 @@ const ReadFitur = () => {
 				options: options,
 				run: cmd.run,
 			};
-			attribute.command.set(cmd.name, cmdObject);
+			attr.command.set(cmd.name, cmdObject);
 			require("delay")(100);
 			global.reloadFile(`./command/${res}/${file}`);
 		}
@@ -114,11 +113,11 @@ async function start(){
   
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
-    console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' })))
-    console.log(color('------------------------------------------------------------------------', 'white'))
-    console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
-    console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
-    console.log(color('[VER]', 'aqua'), color(`${version}`, 'magenta'))
+  console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' })))
+  console.log(color('------------------------------------------------------------------------', 'white'))
+  console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
+  console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
+  console.log(color('[VER]', 'aqua'), color(`${version}`, 'magenta'))
     
   const conn = Baileys({
     printQRInTerminal: true,
@@ -147,7 +146,7 @@ async function start(){
 	  }
 	  if (connection == "open") {
 	    console.log(chalk.yellow("Successfully connected to whatsapp"))
-	    conn.sendMessage(config.owner[0],{text: "_*Bot is now Online!*_"})
+	    conn.sendMessage(config.owner[0],{text: "*_Bot is now Online!*_"})
 	  }
 	  if (connection === "close") {
 			let reason = new Boom(lastDisconnect.error).output.statusCode;
@@ -178,22 +177,21 @@ async function start(){
 		}
 	})
 	
-	conn.ws.on("CB:call", async (json) => {
-		if (json.content[0].tag == "offer") {
-			conn.sendMessage(json.content[0].attrs["call-creator"], {
-				text: `Terdeteksi Menelpon BOT!\nSilahkan Hubungi Owner Untuk Membuka Block !\n\nNomor Owner: \n${config.owner
-					.map(
-						(a) =>
-							`${a.split(`@`)[0]} | ${
-								conn.getName(a).includes("+62") ? "No Detect" : conn.getName(a)
-							}`
-					)
-					.join("\n")}`,
-			});
-			await require("delay")(8000);
-			await conn.updateBlockStatus(json.content[0].attrs["call-creator"], "block");
-		}
-	});
+	conn.ev.on("call", async (senku) => {
+	  console.log(senku)
+	  for(let sen of senku){
+	    if(sen.isGroup == false){
+	      if(sen.status == "offer"){
+	        teks = `*${conn.user.name}* tidak bisa menerima panggilan ${sen.isVideo ? `video` : `suara`}. Maaf kamu akan di block!. Jika tidak sengaja, Silahkan hubungi owner!\n\nNomor Owner :\n${config.owner.map((a) => `${a.split(`@`)[0]} | ${conn.getName(a).includes("+62") ? "No Detect" : conn.getName(a)
+							}`).join("\n")}`
+				  conn.sendMessage(sen.from, {text : teks})
+					await require("delay")(5000);
+					await conn.updateBlockStatus(sen.from, "block")
+	      }
+	    }
+	  }
+	})
+	
 	
 	//contact update
 	conn.ev.on("contacts.update", (m) => {
@@ -214,12 +212,8 @@ async function start(){
 	  const msg = mek.messages[0];
 	  const type = msg.message ? Object.keys(msg.message)[0] : "";
 	  if(msg && type == "protocolMessage") conn.ev.emit("message.delete", msg.message.protocolMessage.key);
-	  require('./handler')(mek, conn, attribute)
+	  require('./handler')(mek, conn, attr)
 	})
 }
 
 connect();
-
-process.on("uncaughtException", function (err) {
-	console.error(err);
-});
