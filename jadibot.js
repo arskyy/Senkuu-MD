@@ -136,10 +136,10 @@ const jadibot = async (msg, conn) => {
           conn.id = decodeJid(conn.user.id)
           conn.time = Date.now()
           global.conns.push(conn)
-	        return msg.reply(`*Connected to Whatsapp - Bot*\n\n*User :*\n _*× id : ${decodeJid(conn.user.id)}*_`)
-	        user = `${decodeJid(conn.user.id)}`
-	        txt = `*Terdeteksi menumpang Jadibot*\n\n _× User : @${user.split("@")[0]}_`
-	        sendMessage(config.owner[0],{text: txt,  withTag : true})
+	  await msg.reply(`*Connected to Whatsapp - Bot*\n\n*User :*\n _*× id : ${decodeJid(conn.user.id)}*_`)
+	  user = `${decodeJid(conn.user.id)}`
+	  txt = `*Terdeteksi menumpang Jadibot*\n\n _× User : @${user.split("@")[0]}_`
+	  sendMessage(config.owner[0],{text: txt,  withTag : true})
         }
         if(connection == "close") {
           let reason = new Boom(lastDisconnect.error).output.statusCode;
