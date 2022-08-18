@@ -11,13 +11,15 @@
 >
 </div>
 
-## Highlights
+## Sorotan
 
 -   [x] Simple Penggunaan,
 -   [x] Mudah digunakan,
 -   [x] Mudah untuk dirawat/diperbaiki,
--   [x] Dan ringan
-
+-   [x] Ringan
+-   [x] Anti delay
+-   [x] Unik
+-   [x] Anti Pasaran!
 
 # Run On Heroku
 
