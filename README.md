@@ -13,9 +13,9 @@
 
 ## Sorotan
 
--   [x] Simple Penggunaan,
--   [x] Mudah digunakan,
--   [x] Mudah untuk dirawat/diperbaiki,
+-   [x] Simple Penggunaan
+-   [x] Mudah digunakan
+-   [x] Mudah untuk dirawat/diperbaiki
 -   [x] Ringan
 -   [x] Anti delay
 -   [x] Unik
