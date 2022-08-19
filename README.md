@@ -1,7 +1,7 @@
 <h1 align='center'>Welcome👋 :wave:</h1>
 
 <div align="center">
-<img src="https://telegra.ph/file/03d611a53446b74d9a936.jpg" alt="SEENKU MD" width="300" />
+<img src="https://telegra.ph/file/73de2a2daf2dad38e3c2a.jpg" alt="SEENKU MD" width="300" />
 <p align="center">
  <img src="https://komarev.com/ghpvc/?username=xzeera-id&color=blue&label=Views" />
  </p>
