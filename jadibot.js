@@ -2,7 +2,7 @@
 
    * Monggoh di copas, tapi kasih kredit y bang :)
    * Thanks to : Senkuu, Fajar Ihsana, Zeera ID
-   * Klo ada Bug / Error, chat wa aja bang wa.me/6281312960393
+   * Klo ada Bug / Error, chat wa aja bang wa.me/6281312960392
    * Yang pasti ada error nya, Karena masih tahap perkembangan..
 
 */
