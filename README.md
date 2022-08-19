@@ -7,9 +7,6 @@
  </p>
 </p>
 <h1 align="center">Senkuu MD</h1>
->
->
->
 </div>
 
 ## Sorotan
