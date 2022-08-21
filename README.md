@@ -141,5 +141,6 @@ npm start
 # Thanks To
 
 -   [`RzkyFdlh`](https://github.com/Rizky878)
+-   [`Zynfinity`](https://wa.me/639162506299)
 -   [`Senkuu`](https://wa.me/6281312960392)
 -   [`ZeeraID`](https://wa.me/6287798426632)
