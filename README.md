@@ -52,9 +52,9 @@ WhatsApp Bot Multi Device
 > pkg install git
 > pkg install ffmpeg && pkg install libwebp
 > pkg install nodejs
-> git clone --depth=1 https://github.com/xzeera-id/Senkuu-MD
+> git clone https://github.com/xzeera-id/Senkuu-MD
 > cd Senkuu-MD
-> npm install --arch=x64 --platform=linux sharp
+> npm install
 > npm start
 # Scan QR
 ```
