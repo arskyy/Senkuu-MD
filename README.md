@@ -19,6 +19,11 @@
 -   [x] Unik
 -   [x] Anti Pasaran!
 
+# Baca Ini!
+
+- Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
+- Session Name: senku-md.json
+
 # Run On Heroku
 
 WhatsApp Bot Multi Device
