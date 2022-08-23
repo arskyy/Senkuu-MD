@@ -110,10 +110,10 @@ const connect = async() => {
 
 async function start(){
   let { version, isLatest } = await fetchLatestBaileysVersion();
-  
+  let data = fs.readFileSync(path.join(__dirname, "doom.flf"), "utf8");
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
-  //console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' })))
+  console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' }, data)))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
   console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
