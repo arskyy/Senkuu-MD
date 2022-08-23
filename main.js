@@ -113,6 +113,7 @@ async function start(){
   let data = fs.readFileSync(path.join(__dirname, "doom.flf"), "utf8");
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
+  // Jika eror figlet (Doom) , hapus console yg ada di bawah ini!! [ Teruntuk user heroku :v ]
   console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' }, data)))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
