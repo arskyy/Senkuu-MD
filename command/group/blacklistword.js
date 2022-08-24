@@ -50,15 +50,9 @@ module.exports = {
        if(!q) throw "Masukan kata terlarang!!"
        try {
          const word = JSON.parse(fs.readFileSync('./lib/database/toxic.json'))
-         if(word[from] == undefined) {
-           word[from] = {
-             kata: [],
-             warning: {}
-           }
-           await fs.writeFileSync('./lib/database/toxic.json',JSON.stringify(word))
-         }
          if(!word[from].kata.includes(q)) return msg.reply(`Kata ${q} tidak ada didalam kata blacklist!`)
          word[from].kata.splice(word[from].kata.indexOf(q), 1)
+         await fs.writeFileSync('./lib/database/toxic.json',JSON.stringify(word))
          reply(`Kata ${q} berhasil dihapus dari kata blacklist`)
        } catch (e){
          global.error(command, e, msg)
