@@ -113,8 +113,7 @@ const connect = async() => {
 }
 
 async function start(){
-  let { version, isLatest } = await fetchLatestBaileysVersion();
-  let data = fs.readFileSync(path.join(__dirname, "doom.flf"), "utf8");
+  let { version, isLatest } = await fetchLatestBaileysVersion()
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
   // Jika eror figlet (Doom) , hapus console yg ada di bawah ini!! [ Teruntuk user heroku :v ]
