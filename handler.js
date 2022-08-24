@@ -258,10 +258,15 @@ module.exports = handler = async (mek, conn, map) => {
 			await msg.reply(`Please reply message`);
 			return true;
 	}
+
+        if(map.lockcmd.has(cmdName)){
+	  let alasan = map.lockcmd.get(cmdName)
+	  return msg.reply(`Maaf *${conn.getName(sender)}*, Command *${cmdName}* sedang di nonaktifkan oleh _*Owner!!*_\n_*Reason : ${alasan || 'Tidak ada'}*_`)
+	}
 	
 	if(options.isMedia) {
-			let medianya = Media(options.isMedia ? options.isMedia : {});
-			if(typeof medianya[0] != "undefined" && !medianya.includes(msg.quoted ? msg.quoted.mtype : []))
+           let medianya = Media(options.isMedia ? options.isMedia : {});
+           if(typeof medianya[0] != "undefined" && !medianya.includes(msg.quoted ? msg.quoted.mtype : []))
 				return msg.reply(`Please reply *${medianya.map((a) => `${((aa = a.charAt(0).toUpperCase()), aa + a.slice(1).replace(/message/gi, ""))}`).join("/")}*`);
 		}
 		
