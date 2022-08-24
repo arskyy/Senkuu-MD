@@ -39,7 +39,7 @@ WhatsApp Bot Multi Device
 | **FFMPEG** |[HERE](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
 | **IMAGEMAGICK** | [HERE](https://github.com/mcollina/heroku-buildpack-imagemagick.git) |
 | **Node.js**     | heroku/nodejs|
-| **WEBP**        | [HERE](https://github.com/clhuang/heroku-buildpack-webp-binaries.git)] |
+| **WEBP**        | [HERE](https://github.com/clhuang/heroku-buildpack-webp-binaries.git) |
 
 ### Statistics
 
