@@ -150,7 +150,7 @@ async function start(){
 	  }
 	  if (connection == "open") {
 	    console.log(chalk.yellow("Successfully connected to whatsapp"))
-	    conn.sendMessage(config.owner[0],{text: "*_Bot is now Online!*_"})
+	    conn.sendMessage(config.owner[0],{text: "_*Bot is now Online!*_"})
 	  }
 	  if (connection === "close") {
 			let reason = new Boom(lastDisconnect.error).output.statusCode;
