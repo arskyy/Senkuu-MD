@@ -15,7 +15,12 @@ const attr = {};
       attr.uptime = new Date();
       attr.command = new Map();
       attr.isSelf = config.self
-   
+      attr.lockcmd = new Map()
+      global.addMap = (x) => {
+        attr[x] = new Map();
+      };   
+
+
 const path = require("path");
 const log = (pino = require("pino"));
 let qrcode = require('qrcode')
