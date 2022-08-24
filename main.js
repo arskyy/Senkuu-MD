@@ -117,7 +117,7 @@ async function start(){
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
   // Jika eror figlet (Doom) , hapus console yg ada di bawah ini!! [ Teruntuk user heroku :v ]
-  console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' }, data)))
+  console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' })))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
   console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
