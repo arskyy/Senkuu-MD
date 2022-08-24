@@ -33,7 +33,11 @@ const attr = {};
 attr.prefix = ".";
 attr.uptime = new Date();
 attr.command = new Map();
+attr.lockcmd = new Map();
 attr.isSelf = config.self
+global.addMap = (x) => {
+	attr[x] = new Map();
+};
 
 
 // Store
