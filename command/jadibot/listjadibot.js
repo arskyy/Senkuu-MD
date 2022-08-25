@@ -1,16 +1,20 @@
+const prettyms = require('pretty-ms')
+
 module.exports = {
   name: "listjadibot",
   alias: ["listjadibot","listbot"],
-  category: "jadibot",
+  category: "main",
   desc: "menampilkan user yang menumpang menjadi bot!!",
   async run({conn, msg}){
     try {
-      let user = [... new Set([...global.conns.filter(conn => conn.user).map(conn => conn.user)])]
+      let user = [... new Set([...global.conns.filter(conn => conn).map(conn => conn)])]
       te = "*List Jadibot*\n\n"
+      te += ` Total : ${global.conns.length}\n\n`
       for(let i of user){
-        y = await conn.decodeJid(i.id)
+        y = await conn.decodeJid(i.user.id)
         te += " × User : @" + y.split("@")[0] + "\n"
-        te += " × Name : " + i.name + "\n\n"
+        te += " × Name : " + i.user.name + "\n"
+        te += " × Ago : " + await prettyms(Date.now() - i.time, { verbose: true, }) + "\n\n"
       }
       user != "" ? await msg.reply(te,{withTag : true}) : await msg.reply("_*Tidak ada user yang menumpang..*_")
     } catch (e){
