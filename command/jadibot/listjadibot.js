@@ -14,7 +14,7 @@ module.exports = {
         y = await conn.decodeJid(i.user.id)
         te += " × User : @" + y.split("@")[0] + "\n"
         te += " × Name : " + i.user.name + "\n"
-        te += " × Ago : " + await prettyms(Date.now() - i.time, { verbose: true, }) + "\n\n"
+        te += " × Uptime : " + await prettyms(Date.now() - i.time, { verbose: true, }) + "\n\n"
       }
       user != "" ? await msg.reply(te,{withTag : true}) : await msg.reply("_*Tidak ada user yang menumpang..*_")
     } catch (e){
