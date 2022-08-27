@@ -3,7 +3,7 @@ const prettyms = require('pretty-ms')
 module.exports = {
   name: "listjadibot",
   alias: ["listjadibot","listbot"],
-  category: "main",
+  category: "jadibot",
   desc: "menampilkan user yang menumpang menjadi bot!!",
   async run({conn, msg}){
     try {
