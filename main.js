@@ -102,7 +102,7 @@ const ReadFitur = () => {
 			global.reloadFile(`./command/${res}/${file}`);
 		}
 	});
-	console.log(chalk.yellow('Command loaded successfully✓'))
+	console.log(chalk.yellow('Command loaded successfully ✓'))
 };
 // cmd
 ReadFitur();
@@ -116,7 +116,7 @@ async function start(){
   let { version, isLatest } = await fetchLatestBaileysVersion()
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
-  console.log(color(figlet.textSync('Senkuu - MD', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
+  console.log(color(figlet.textSync('ChandraSans', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
   console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
@@ -149,7 +149,7 @@ async function start(){
 	  }
 	  if (connection == "open") {
 	    console.log(chalk.yellow("Successfully connected to whatsapp"))
-	    conn.sendMessage(config.owner[0],{text: "_*Bot is now Online!*_"})
+	    conn.sendMessage(config.owner[0],{text: "Bot is now Online!"})
 	  }
 	  if (connection === "close") {
 			let reason = new Boom(lastDisconnect.error).output.statusCode;
