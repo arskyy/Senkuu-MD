@@ -33,7 +33,11 @@ const attr = {};
 attr.prefix = ".";
 attr.uptime = new Date();
 attr.command = new Map();
+attr.lockcmd = new Map();
 attr.isSelf = config.self
+global.addMap = (x) => {
+	attr[x] = new Map();
+};
 
 
 // Store
@@ -109,12 +113,10 @@ const connect = async() => {
 }
 
 async function start(){
-  let { version, isLatest } = await fetchLatestBaileysVersion();
-  let data = fs.readFileSync(path.join(__dirname, "doom.flf"), "utf8");
+  let { version, isLatest } = await fetchLatestBaileysVersion()
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
-  // Jika eror figlet (Doom) , hapus console yg ada di bawah ini!! [ Teruntuk user heroku :v ]
-  console.log(color(figlet.textSync('Senkuu', { font: 'doom', horizontalLayout: 'default' }, data)))
+  console.log(color(figlet.textSync('Senkuu - MD', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
   console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
@@ -147,7 +149,7 @@ async function start(){
 	  }
 	  if (connection == "open") {
 	    console.log(chalk.yellow("Successfully connected to whatsapp"))
-	    conn.sendMessage(config.owner[0],{text: "*_Bot is now Online!*_"})
+	    conn.sendMessage(config.owner[0],{text: "_*Bot is now Online!*_"})
 	  }
 	  if (connection === "close") {
 			let reason = new Boom(lastDisconnect.error).output.statusCode;

@@ -22,8 +22,7 @@
 # Baca Ini!
 
 - Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
-- Heroku doesn't support figlet? Remove the console section here!! [Click Here](https://github.com/xzeera-id/Senkuu-MD/blob/main/main.js#L117)
-- Session Name: senku-md.json
+- Session repository [In Here](https://github.com/xzeera-id/Senkuu-MD/tree/main/lib/database) & Session Name: senkuu-md
 
 # Run On Heroku
 
@@ -39,6 +38,7 @@ WhatsApp Bot Multi Device
 | **FFMPEG** |[HERE](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
 | **IMAGEMAGICK** | [HERE](https://github.com/mcollina/heroku-buildpack-imagemagick.git) |
 | **Node.js**     | heroku/nodejs|
+| **WEBP**        | [HERE](https://github.com/clhuang/heroku-buildpack-webp-binaries.git) |
 
 ### Statistics
 
