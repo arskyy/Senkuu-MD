@@ -22,7 +22,7 @@
 # Baca Ini!
 
 - Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
-- [Session repository](https://github.com/xzeera-id/Senkuu-MD/tree/main/lib/database)
+- Session repository [In Here](https://github.com/xzeera-id/Senkuu-MD/tree/main/lib/database) & Session Name: senkuu-md
 
 # Run On Heroku
 
