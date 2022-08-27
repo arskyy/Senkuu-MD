@@ -22,8 +22,7 @@
 # Baca Ini!
 
 - Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
-- Heroku doesn't support figlet? Remove the console section here!! [Click Here](https://github.com/xzeera-id/Senkuu-MD/blob/main/main.js#L120)
-- Session Name: senku-md.json
+- Session repository : senku-md.json
 
 # Run On Heroku
 
