@@ -3,7 +3,7 @@
 <div align="center">
 <img src="https://telegra.ph/file/3024b63e3b52707d6a696.jpg" alt="SEENKU MD" width="300" />
 <p align="center">
- <img src="https://komarev.com/ghpvc/?username=xzeera-id&color=blue&label=Views" />
+ <img src="https://komarev.com/ghpvc/?username=ChandraSans&color=blue&label=Views" />
  </p>
 </p>
 <h1 align="center">Senkuu MD</h1>
@@ -21,14 +21,14 @@
 
 # Baca Ini!
 
-- Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
-- Session repository [In Here](https://github.com/xzeera-id/Senkuu-MD/tree/main/lib/database) & Session Name: senkuu-md
+- Change [Config](https://github.com/ChandraSans/Senkuu-MD/blob/main/lib/config.json)
+- Session repository [In Here](https://github.com/ChandraSans/Senkuu-MD/tree/main/lib/database) & Session Name: senkuu-md
 
 # Run On Heroku
 
 WhatsApp Bot Multi Device
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xzeera-id/Senkuu-MD)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ChandraSans/Senkuu-MD)
 
 
 # Heroku Buildpack
@@ -42,8 +42,8 @@ WhatsApp Bot Multi Device
 
 ### Statistics
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=xzeera-id&show_icons=true&hide=issues&theme=radical)](https://github-readme-stats.vercel.app)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs?username=xzeera-id&layout=compact&theme=radical)](https://github-readme-stats.vercel.app)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ChandraSans&show_icons=true&hide=issues&theme=radical)](https://github-readme-stats.vercel.app)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs?username=ChandraSans&layout=compact&theme=radical)](https://github-readme-stats.vercel.app)
 
 ## Request Fitur To
 [`Creator Here`](https://wa.me/6281312960392?text=Bang+req+fitur) 
@@ -58,7 +58,7 @@ WhatsApp Bot Multi Device
 > pkg install git
 > pkg install ffmpeg && pkg install libwebp
 > pkg install nodejs
-> git clone https://github.com/xzeera-id/Senkuu-MD
+> git clone https://github.com/ChandraSans/Senkuu-MD
 > cd Senkuu-MD
 > npm install
 > npm start
@@ -119,7 +119,7 @@ pacman -S libwebp
 
 ```bash
 # clone repo
-git clone --depth=1 https://github.com/xzeera-id/Senkuu-MD
+git clone --depth=1 https://github.com/ChandraSans/Senkuu-MD
 
 # ubah posisi direktori kamu
 cd Senkuu-MD
@@ -150,3 +150,4 @@ npm start
 -   [`Zynfinity`](https://wa.me/639162506299)
 -   [`Senkuu`](https://wa.me/6281312960392)
 -   [`ZeeraID`](https://wa.me/6287798426632)
+-   [`ChandraSans`](https://wa.me/6285691564740)
