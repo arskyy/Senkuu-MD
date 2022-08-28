@@ -10,7 +10,7 @@ module.exports = {
         packname: config.packInfo.packname,
 	  		author: config.packInfo.author,
        };
-    if(!q) throw `Example : .${msg.command} ngentot`
+    if(!q) throw `Example : .${msg.command} chandrasans`
   try{
     ttp = await far.maker.ttp(q)
     const stickerBuff = await sticker(await conn.getBuffer(ttp.result), {
