@@ -14,8 +14,8 @@ module.exports = {
 	async run({ msg, conn }, { q, map, args, cmdNya }) {
 		try {
 		 const packInfo = {
-  			packname: "Senkuu BOT",
-	  		author: "Beta✓",
+  			packname: "WhatsApp Bot Sticker",
+	  		author: "Beta ✓",
        };
      emojis = await emojiStringToArray(await q.replace('+', ''))
      emo = await emojimix(emojis[0], emojis[1])
