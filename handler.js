@@ -103,13 +103,13 @@ module.exports = handler = async (mek, conn, map) => {
 			options.adReply
 				? (content.contextInfo = {
 						externalAdReply: {
-							title: "© Senkuu饺",
+							title: "© ChandraSans",
 							mediaType: 1,
 							//renderLargerThumbnail: true,
 							showAdAttribution: true,
 							body: config.namebot,
-							thumbnail: await conn.getBuffer("https://telegra.ph/file/915b6ff0ddf1f7d145880.jpg"),
-							sourceUrl: "https://chat.whatsapp.com/EdGuZCNrWGp2OFbXv5Rm8Y",
+							thumbnail: await conn.getBuffer("https://i.pinimg.com/originals/cb/b2/0b/cbb20bf3a92499982daa0d1059d17790.jpg"),
+							sourceUrl: "https://chat.whatsapp.com/HpfKp8wmdJzGlRKyqocfJ1",
 						},
 				  })
 				: "";
@@ -206,15 +206,15 @@ module.exports = handler = async (mek, conn, map) => {
 	  wait: "Tunggu sebentar, Permintaan anda sedang diproses..",
 	  success: "Done ✓",
 	  error:{
-	    cmd: "Maaf command error, Silahkan hubungi Owner!!",
-	    lv: ["Link tidak valid!!","Link nya mana?"],
-	    api: "Maaf sistem sedang sibuk!!"
+	    cmd: "Maaf command error, Silahkan hubungi Owner!",
+	    lv: ["Link tidak valid!","Link nya mana?"],
+	    api: "Maaf sistem sedang sibuk!"
 	  },
-	  group: "Command ini dapat digunakan di dalam group!",
-	  private: "Command ini dapat digunakan di Private Chat / PC Bot..",
-	  admin: "Command ini hanya untuk Admin!!",
-	  bAdmin: "Command ini dapat digunakan setelah BOT menjadi Admin!!",
-	  owner: "Command ini hanya untuk Owner!!"
+	  group: "Command ini hanya untuk Group Chat!",
+	  private: "Command ini hanya untuk Private Chat!",
+	  admin: "Command ini hanya untuk Admin Group!",
+	  bAdmin: "Command ini dapat digunakan setelah BOT menjadi Admin!",
+	  owner: "Command ini hanya untuk Owner Bot!"
 	}
 	
 	// [ Global Error ]
