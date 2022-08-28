@@ -22,7 +22,7 @@
 # Baca Ini!
 
 - Change [Config](https://github.com/ChandraSans/Senkuu-MD/blob/main/lib/config.json)
-- Session repository [In Here](https://github.com/ChandraSans/Senkuu-MD/tree/main/lib/database) & Session Name: senkuu-md
+- Session repository [In Here](https://github.com/ChandraSans/Senkuu-MD/tree/main/lib/database) & Session Name: session
 
 # Run On Heroku
 
