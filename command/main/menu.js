@@ -1,3 +1,5 @@
+//WM JANGAN DI HAPUS DEKK
+
 const { monospace } = require('../../lib/function')
 const fs = require("fs");
 let multi_pref = new RegExp("^[" + "!#%&?/;:,.~-+=".replace(/[|\\{}()[\]^$+*?.\-\^]/g, "\\$&") + "]");
@@ -92,6 +94,7 @@ module.exports = {
 			  menu += `*乂 ${key.toUpperCase()}*\n`
 			  menu += `${category[key].map((cmd) => monospace(` × ${cmd.options.noPrefix ? "" : pref}${cmd.name} ${map.lockcmd.get(cmd.name) ? "❌" : ""}`)).join("\n")} ` + "\n\n"
 			}
+                        menu += `*Thanks To:*\n\n• Senkuu\n•ZeraaID\n•Zynfinity`
 			menu += `_Note : Ketik ${prefix}help <command> untuk melihat info command_`
 			
 			const buttons = [
