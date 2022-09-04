@@ -25,6 +25,7 @@
 - Tempat Session: lib/database/senkuu-md.json
 - Session Name: senkuu-md.json
 - Button Gak Muncul? Update Baileys 
+
 ( npm i github:adiwajshing/Baileys )
 
 # Run On Heroku
