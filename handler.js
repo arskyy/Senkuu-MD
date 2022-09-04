@@ -183,7 +183,7 @@ module.exports = handler = async (mek, conn, map) => {
     
     // FUNCTION
     await conn.readMessages([msg.key]);
-    require("./lib/function/menfess")(msg,conn);
+    //require("./lib/function/menfess")(msg,conn);
     require("./lib/function/anonymous")(msg,conn);
     require("./lib/function/whatword")(msg,conn);
     require("./lib/function/whatpict")(msg,conn);
