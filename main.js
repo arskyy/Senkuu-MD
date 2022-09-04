@@ -38,7 +38,8 @@ attr.isSelf = config.self
 global.addMap = (x) => {
 	attr[x] = new Map();
 };
-
+global.game = {}
+global.game.akinator = {}
 
 // Store
 global.store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
@@ -67,6 +68,9 @@ const ReadFitur = () => {
 				isBotAdmin: false,
 				query: false,
 				isPrivate: false,
+				isLimit: false,
+				isLimitGame: false,
+				isPremium: false,
 				noPrefix: false,
 				isMedia: {
 					isQVideo: false,
@@ -113,7 +117,8 @@ const connect = async() => {
 }
 
 async function start(){
-  let { version, isLatest } = await fetchLatestBaileysVersion()
+  let { version, isLatest } = await fetchLatestBaileysVersion();
+  
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color(figlet.textSync('Senkuu - MD', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
@@ -220,3 +225,7 @@ async function start(){
 }
 
 connect();
+
+process.on("uncaughtException", function (err) {
+	console.error(err);
+});

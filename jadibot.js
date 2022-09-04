@@ -1,8 +1,9 @@
+
 /*
 
    * Monggoh di copas, tapi kasih kredit y bang :)
    * Thanks to : Senkuu, Fajar Ihsana, Zeera ID
-   * Klo ada Bug / Error, chat wa aja bang wa.me/6281312960392
+   * Klo ada Bug / Error, chat wa aja bang wa.me/6281312960393
    * Yang pasti ada error nya, Karena masih tahap perkembangan..
 
 */
@@ -15,12 +16,11 @@ const attr = {};
       attr.uptime = new Date();
       attr.command = new Map();
       attr.isSelf = config.self
-      attr.lockcmd = new Map()
+      attr.lockcmd = new Map();
       global.addMap = (x) => {
         attr[x] = new Map();
-      };   
-
-
+      };
+   
 const path = require("path");
 const log = (pino = require("pino"));
 let qrcode = require('qrcode')
@@ -60,6 +60,9 @@ const ReadFitur = () => {
 				isGroup: false,
 				isBotAdmin: false,
 				query: false,
+				isLimit: false,
+				isLimitGame: false,
+				isPremium: false,
 				isPrivate: false,
 				noPrefix: false,
 				isMedia: {
@@ -140,11 +143,11 @@ const jadibot = async (msg, conn) => {
         if (connection == "open") {
           conn.id = decodeJid(conn.user.id)
           conn.time = Date.now()
-          global.conns.push(conn)
-	  await msg.reply(`*Connected to Whatsapp - Bot*\n\n*User :*\n _*× id : ${decodeJid(conn.user.id)}*_`)
-	  user = `${decodeJid(conn.user.id)}`
-	  txt = `*Terdeteksi menumpang Jadibot*\n\n _× User : @${user.split("@")[0]}_`
-	  sendMessage(config.owner[0],{text: txt,  withTag : true})
+        global.conns.push(conn)
+	      await msg.reply(`*Connected to Whatsapp - Bot*\n\n*User :*\n _*× id : ${decodeJid(conn.user.id)}*_`)
+	      user = `${decodeJid(conn.user.id)}`
+	      txt = `*Terdeteksi menumpang Jadibot*\n\n _× User : @${user.split("@")[0]}_`
+	      sendMessage(config.owner[0],{text: txt,  withTag : true})
         }
         if(connection == "close") {
           let reason = new Boom(lastDisconnect.error).output.statusCode;

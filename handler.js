@@ -15,7 +15,6 @@ module.exports = handler = async (mek, conn, map) => {
   try {
     if(mek.type !== "notify") return;
     let msg = await serialize(JSON.parse(JSON.stringify(mek.messages[0])), conn);
-    const customLanguage = "en"
     if(!msg.message) return;
     if(Object.keys(msg.message)[0] == "senderKeyDistributionMessage") delete msg.message.senderKeyDistributionMessage;
     if(Object.keys(msg.message)[0] == "messageContextInfo") delete msg.message.messageContextInfo;
@@ -23,6 +22,7 @@ module.exports = handler = async (mek, conn, map) => {
 		if(msg.type === "protocolMessage" || msg.type === "senderKeyDistributionMessage" || !msg.type ||msg.type === "")
 			return;
 			
+		global.customLanguage = JSON.parse(fs.readFileSync("./lib/database/language.json"));
 		global.dashboard = JSON.parse(fs.readFileSync("./lib/database/dashboard.json"));
 		let { body, type, isGroup, sender, from } = msg;
     let groupMetadata = isGroup ? await conn.groupMetadata(from) : "";
@@ -75,18 +75,25 @@ module.exports = handler = async (mek, conn, map) => {
 			return list;
 		};
 		
+		global.isPremium = prem.checkPremiumUser(msg.sender, premium);
+		global.gcount = isPremium ? config.limit.gameLimitPremium : config.limit.gameLimitUser;
+		global.limitCount = config.limit.limitUser;
+		
 		const image = JSON.parse(fs.readFileSync('./lib/storage/randomimage.json'))
     randIndex = Math.floor(Math.random() * image.length);
 		img = image[randIndex];
 			
 	// [ sendMessage ]
 	conn.sendMessage = async (jid, content, options = { isTranslate: true }) => {
-			const typeMes = content.image || content.text || content.video || content.document ? "composing" : "recording";
+			await conn.presenceSubscribe(jid);
+			const typeMes =
+				content.image || content.text || content.video || content.document ? "composing" : "recording";
+			await conn.sendPresenceUpdate(typeMes, jid);
 			const cotent = content.caption || content.text || "";
 			if (options.isTranslate) {
 				const footer = content.footer || false;
-				const customLang = "en"
-				const language = "en"
+				const customLang = customLanguage.find((x) => x.jid == msg.sender);
+				const language = customLang ? customLang.country : false;
 				if (customLang) {
 					if (footer) footer = await rzky.tools.translate(footer, language);
 					translate = await rzky.tools.translate(cotent, language);
@@ -103,13 +110,13 @@ module.exports = handler = async (mek, conn, map) => {
 			options.adReply
 				? (content.contextInfo = {
 						externalAdReply: {
-							title: "© Senkuu饺",
+							title: "© " + config.namebot,
 							mediaType: 1,
 							//renderLargerThumbnail: true,
 							showAdAttribution: true,
-							body: config.namebot,
-							thumbnail: await conn.getBuffer("https://telegra.ph/file/915b6ff0ddf1f7d145880.jpg"),
-							sourceUrl: "https://chat.whatsapp.com/EdGuZCNrWGp2OFbXv5Rm8Y",
+							body: "",
+							thumbnail: await conn.getBuffer("https://telegra.ph/file/829db99aaba4cd7695e65.jpg"),
+							sourceUrl: "https://chat.whatsapp.com/JUB7QWnyGVWFW1Ce2sZ3bx",
 						},
 				  })
 				: "";
@@ -158,29 +165,32 @@ module.exports = handler = async (mek, conn, map) => {
 				return fromContent;
 			}
 		};
-	
 		
 	// [ Self Public]
 	if (map.isSelf) {
 			if (!msg.isSelf && !isOwner) return;
 		}
-		
-	// [ Auto Read ]
-	await conn.readMessages([msg.key]);
 	
 	// [ Blacklist ]
 	if(isGroup){
-		  await require("./lib/function/blacklist")(msg, conn);
+		await require("./lib/function/blacklist")(msg, conn);
 		}
-       // [ Anonymous ]
-       require("./lib/function/anonymous")(msg,conn);
-
-
+		
   // [ Afk ]
   if(isGroup){
-      await require("./lib/function/afk")(msg,conn);
+     await require("./lib/function/afk")(msg,conn);
     }
-	
+    
+    // FUNCTION
+    await conn.readMessages([msg.key]);
+    require("./lib/function/menfess")(msg,conn);
+    require("./lib/function/anonymous")(msg,conn);
+    require("./lib/function/whatword")(msg,conn);
+    require("./lib/function/whatpict")(msg,conn);
+    require("./lib/function/whatflag")(msg,conn);
+    require("./lib/function/mathAnswer")(msg,conn);
+    
+
 	// [ Log ]
 	global.printLog(isCmd, sender, msg, body, groupName, isGroup);
 	
@@ -228,6 +238,43 @@ module.exports = handler = async (mek, conn, map) => {
 		conn.sendMessage(config.owner[0], {text: error});
 	};
 	
+	/*
+	if(isCmd && !cmd){
+	  var data = [...map.command.keys()];
+			[...map.command.values()]
+				.map((x) => x.alias)
+				.join(" ")
+				.replace(/ +/gi, ",")
+				.split(",")
+				.map((a) => data.push(a));
+		typo = await rzky.tools.detectTypo(cmdName, data)
+		if(typo.result != ''){
+		  if(typo.result[0].keakuratan >= '0.70'){
+		    msg.reply(`_Mungkin yang anda maksud adalah : .*${typo.result[0].teks}*_\n\nKeakuratan : ${typo.result[0].keakuratan}\n\n_Silahkan ulang jika benar_`)
+		  }
+		}
+	}*/
+	
+	
+	// Download reply pesan bot [ Not use command ]
+	if(!isCmd && isUrl(msg.body) && /instagram.com/i.test(msg.body)){
+	  if (!msg.quoted.text.split("*").includes("[ INSTAGRAM DOWNLOADER ]")) return;
+	  await msg.reply(respon.wait)
+	  try {
+	    var bod = isUrl(msg.body);
+	    var igdl = await sc.instagram(bod)
+	    if(/reel/.test(bod)) return await conn.sendFile(msg.from, igdl.media[0].url,"", "*Done*", msg)
+	    ngontol = igdl.media.length > 1 ? true : false
+      if(ngontol) await msg.reply("Jumlah media lebih dari 1, media akan dikirim lewat private chat (PC)\nSilahkan cek chat dari bot><!")
+      for(let i of igdl.media) {
+        conn.sendFile(ngontol ? msg.sender : msg.from, i.url,"", "*Done*",msg)
+          }
+	  } catch (e){
+	    console.log(e)
+	  }
+	}
+	
+
 	// [ Options Command ]
 	if(!cmd) return;
 	const options = cmd.options;
@@ -248,7 +295,17 @@ module.exports = handler = async (mek, conn, map) => {
 				await db.modified("dashboard", { name: cmd.name, success: 1, failed: 0, lastUpdate: Date.now() });
 			}
 		}
-	
+	if (options.isLimit && !isPremium) {
+			if (isLimit(msg.sender, isPremium, isOwner, limitCount, limit) && !msg.isSelf)
+				return msg.reply(`Your limit has run out, please send ${prefix}limit to check the limit`);
+			limitAdd(msg.sender, limit);
+		}
+		if (options.isLimitGame) {
+			if (isGame(msg.sender, isOwner, gcount, glimit) && !msg.iSelf)
+				return msg.reply(`Your game limit has run out`);
+			gameAdd(msg.sender, glimit);
+		}
+		
 	if(options.isAdmin && !isAdmin) {
 	  await msg.reply(respon.admin);
 	  return true
@@ -258,15 +315,15 @@ module.exports = handler = async (mek, conn, map) => {
 			await msg.reply(`Please reply message`);
 			return true;
 	}
-
-        if(map.lockcmd.has(cmdName)){
+	
+	if(map.lockcmd.has(cmdName)){
 	  let alasan = map.lockcmd.get(cmdName)
 	  return msg.reply(`Maaf *${conn.getName(sender)}*, Command *${cmdName}* sedang di nonaktifkan oleh _*Owner!!*_\n_*Reason : ${alasan || 'Tidak ada'}*_`)
 	}
 	
 	if(options.isMedia) {
-           let medianya = Media(options.isMedia ? options.isMedia : {});
-           if(typeof medianya[0] != "undefined" && !medianya.includes(msg.quoted ? msg.quoted.mtype : []))
+			let medianya = Media(options.isMedia ? options.isMedia : {});
+			if(typeof medianya[0] != "undefined" && !medianya.includes(msg.quoted ? msg.quoted.mtype : []))
 				return msg.reply(`Please reply *${medianya.map((a) => `${((aa = a.charAt(0).toUpperCase()), aa + a.slice(1).replace(/message/gi, ""))}`).join("/")}*`);
 		}
 		
