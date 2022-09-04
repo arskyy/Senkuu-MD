@@ -103,13 +103,13 @@ module.exports = handler = async (mek, conn, map) => {
 			options.adReply
 				? (content.contextInfo = {
 						externalAdReply: {
-							title: "© Senkuu饺",
+							title: "© Meldaa饺",
 							mediaType: 1,
 							//renderLargerThumbnail: true,
 							showAdAttribution: true,
 							body: config.namebot,
 							thumbnail: await conn.getBuffer("https://telegra.ph/file/915b6ff0ddf1f7d145880.jpg"),
-							sourceUrl: "https://chat.whatsapp.com/EdGuZCNrWGp2OFbXv5Rm8Y",
+							sourceUrl: "https://chat.whatsapp.com/KLfJ0fI1UnCLhRtv2aYoxv",
 						},
 				  })
 				: "";
