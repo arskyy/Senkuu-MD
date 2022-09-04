@@ -8,6 +8,7 @@
   "session": "senku-md",
   "email": "yntkts@gmail.com",
   "self": false,
+  "limit": { "limitUser": 30, "gameLimitUser": 10, "gameLimitPremium": 30 },
   "packInfo":{
     "packname": "Senkuu",
     "author": "Beta ✓"
