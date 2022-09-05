@@ -22,8 +22,8 @@
 # Baca Ini!
 
 - Change [Config](https://github.com/xzeera-id/Senkuu-MD/blob/main/lib/config.json)
-- Tempat Session: lib/database/senkuu-md.json
-- Session Name: senkuu-md.json
+- Tempat Session: lib/database/senku-md.json
+- Session Name: senku-md.json
 - Button Gak Muncul? Update Baileys
 ( npm i github:adiwajshing/Baileys )
 
