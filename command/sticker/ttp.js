@@ -4,7 +4,7 @@ const { sticker } = require("../../lib/convert");
 module.exports = {
   name: "ttp",
   alias: ["ttp"],
-  category: "converter",
+  category: "sticker",
   async run({msg, conn},{q}){
     const packInfo = {
         packname: config.packInfo.packname,
