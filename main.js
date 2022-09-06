@@ -211,9 +211,7 @@ async function start(){
 	
 	// Welcome 
 	conn.ev.on("group-participants.update", async (msg) => {
-		require("./lib/function/groupUpdate").welcome(conn, msg);
-		require("./lib/function/groupUpdate").left(conn, msg);
-		require("./lib/function/groupUpdate").antiluar(conn, msg);
+          require("./lib/function/groupUpdate")(conn, msg);
 	});
 	
 	conn.ev.on("messages.upsert", async (mek) => {
