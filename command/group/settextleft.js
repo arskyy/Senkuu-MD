@@ -4,8 +4,8 @@ module.exports = {
 	desc: "Change Text On Left",
 	category: "group",
 	use: "<text>",
-	query: "enter text\n@subject subject group\n@ownergc owner group\n@user tag participant is left\n@creation when was the group created\n@desc descripdescription",
-	isAdmin: true,
+	query: "enter text\n@subject subject group\n@user tag participant is left\n@desc descripdescription",
+        isAdmin: true,
 	isGroup: true,
 	async run({ msg, conn }, { q }) {
 		let dataNeeded = db.cekDatabase("left", "id", msg.from);
