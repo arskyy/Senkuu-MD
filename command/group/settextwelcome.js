@@ -2,7 +2,7 @@ module.exports = {
   name: "settextwelcome",
   alias: ["setwelcome"],
   category: "group",
-  query: "enter text\n@subject subject group\n@ownergc owner group\n@user tag participant is left\n@creation when was the group created\n@desc descripdescription",
+  query: "enter text\n@subject subject group\n@user tag participant is left\n@desc descripdescription",
   isGroup: true,
   isAdmin: true,
   async run({msg,conn},{q}){
