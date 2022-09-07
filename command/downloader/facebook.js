@@ -6,7 +6,7 @@ module.exports = {
   category: "downloader",
   desc: "Download from Facebook",
   async run({msg, conn},{q}){
-    if(!q) throw ` _× Example : ${msg.command} <url>_`
+    if(!q) throw "*[ FACEBOOK DOWNLOADER ]*\n\nReply pesan ini dan kirim link url Facebook untuk Download.."
     if(!isUrl(q) && q.includes("facebook.com")) throw 'Link invalid!!'
     await msg.reply(respon.wait)
     try {
