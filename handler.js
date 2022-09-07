@@ -25,13 +25,13 @@ module.exports = handler = async (mek, conn, map) => {
 		global.customLanguage = JSON.parse(fs.readFileSync("./lib/database/language.json"));
 		global.dashboard = JSON.parse(fs.readFileSync("./lib/database/dashboard.json"));
 		let { body, type, isGroup, sender, from } = msg;
-    let groupMetadata = isGroup ? await conn.groupMetadata(from) : "";
+                let groupMetadata = isGroup ? await conn.groupMetadata(from) : "";
 		let groupName = isGroup ? groupMetadata.subject : "";
 		let isAdmin = isGroup ? (await getAdmin(conn, msg)).includes(sender) : false;
 		let isPrivate = msg.from.endsWith("@s.whatsapp.net");
 		let botAdmin = isGroup ? (await getAdmin(conn, msg)).includes(conn.decodeJid(conn.user.id)) : false;
 		let isOwner = owner.includes(sender);
-    let temp_pref = multi_pref.test(body) ? body.split("").shift() : ".";
+                let temp_pref = multi_pref.test(body) ? body.split("").shift() : ".";
 		if(body) {
 			body = body.startsWith(temp_pref) ? body : "";
 		} else {
@@ -55,7 +55,7 @@ module.exports = handler = async (mek, conn, map) => {
 		let isQSticker = type === "extendedTextMessage" && contentQ.includes("stickerMessage");
 		let isQLocation = type === "extendedTextMessage" && contentQ.includes("locationMessage");
     
-    const Media = (media = {}) => {
+                const Media = (media = {}) => {
 			list = [];
 			if(media.isQAudio) {
 				list.push("audioMessage");
@@ -80,7 +80,7 @@ module.exports = handler = async (mek, conn, map) => {
 		global.limitCount = config.limit.limitUser;
 		
 		const image = JSON.parse(fs.readFileSync('./lib/storage/randomimage.json'))
-    randIndex = Math.floor(Math.random() * image.length);
+                randIndex = Math.floor(Math.random() * image.length);
 		img = image[randIndex];
 			
 	// [ sendMessage ]
@@ -190,6 +190,9 @@ module.exports = handler = async (mek, conn, map) => {
     require("./lib/function/whatflag")(msg,conn);
     require("./lib/function/mathAnswer")(msg,conn);
     
+    // FUNCTION DOWNLOADREPLY
+    require('./lib/function/downloadReply').facebook(isCmd, msg, conn);
+    require('./lib/function/downloadReply').tiktok(isCmd, msg, conn);
 
 	// [ Log ]
 	global.printLog(isCmd, sender, msg, body, groupName, isGroup);
@@ -235,7 +238,7 @@ module.exports = handler = async (mek, conn, map) => {
 	  error += String(e)
 	  if(String(e).includes("Cannot read property 'data' of undefined")) return msg.reply('no media found, please resend the media')
 	  else msg.reply(respon.error.cmd + "\n\nLog error:\n " + String(e))
-		conn.sendMessage(config.owner[0], {text: error});
+          conn.sendMessage(config.owner[0], {text: error});
 	};
 	
 	/*
@@ -255,26 +258,6 @@ module.exports = handler = async (mek, conn, map) => {
 		}
 	}*/
 	
-	
-	// Download reply pesan bot [ Not use command ]
-	if(!isCmd && isUrl(msg.body) && /instagram.com/i.test(msg.body)){
-	  if (!msg.quoted.text.split("*").includes("[ INSTAGRAM DOWNLOADER ]")) return;
-	  await msg.reply(respon.wait)
-	  try {
-	    var bod = isUrl(msg.body);
-	    var igdl = await sc.instagram(bod)
-	    if(/reel/.test(bod)) return await conn.sendFile(msg.from, igdl.media[0].url,"", "*Done*", msg)
-	    ngontol = igdl.media.length > 1 ? true : false
-      if(ngontol) await msg.reply("Jumlah media lebih dari 1, media akan dikirim lewat private chat (PC)\nSilahkan cek chat dari bot><!")
-      for(let i of igdl.media) {
-        conn.sendFile(ngontol ? msg.sender : msg.from, i.url,"", "*Done*",msg)
-          }
-	  } catch (e){
-	    console.log(e)
-	  }
-	}
-	
-
 	// [ Options Command ]
 	if(!cmd) return;
 	const options = cmd.options;
