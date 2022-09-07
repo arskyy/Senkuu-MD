@@ -38,17 +38,17 @@ module.exports = {
         for(const cmd of cmds){
           let info = command.get(cmd);
           if (!cmd) continue;
-	  if (config.ignore.directory.includes(info.category.toLowerCase())) continue;
-          cteg = info.category || "No Category";
-	  if (info.type == "changelog") continue;
-	  if (!cteg || cteg === "private") cteg = "owner";
-	  if (Object.keys(category).includes(cteg)) category[cteg].push(info);
-          else {
-	    category[cteg] = [];
-	    category[cteg].push(info);
-         }
+		  		if (config.ignore.directory.includes(info.category.toLowerCase())) continue;
+		  		cteg = info.category || "No Category";
+		  		if (info.type == "changelog") continue;
+			  	if (!cteg || cteg === "private") cteg = "owner";
+		  		if (Object.keys(category).includes(cteg)) category[cteg].push(info);
+		  		else {
+		  		  category[cteg] = [];
+				  	category[cteg].push(info);
+		  		}
         }
-                        teks = global.footer + " *[ Beta✓ ]*\n\n"
+        teks = global.footer + " *[ Beta✓ ]*\n\n"
 		  	teks += monospace(" ❏ Library : Baileys-MD") + "\n"
 		  	teks += monospace(" ❏ Author : " + "@" + config.owner[0].split("@")[0] )+ "\n"
 		  	teks += monospace(" ❏ Prefix : [ " + pref + " ]") + "\n\n"
@@ -64,16 +64,16 @@ module.exports = {
       } else {
         for (let cmd of cmds){
           let info = command.get(cmd);
-	  if (!cmd) continue;
-	  if (config.ignore.directory.includes(info.category.toLowerCase())) continue;
-	  cteg = info.category || "No Category";
-	  if (info.type == "changelog") continue;
-          if (!cteg || cteg === "private") cteg = "owner";
-          if (Object.keys(category).includes(cteg)) category[cteg].push(info);
-	  else {
-		category[cteg] = [];
-                category[cteg].push(info);
-          }
+			  	if (!cmd) continue;
+		  		if (config.ignore.directory.includes(info.category.toLowerCase())) continue;
+		  		cteg = info.category || "No Category";
+		  		if (info.type == "changelog") continue;
+		  		if (!cteg || cteg === "private") cteg = "owner";
+			  	if (Object.keys(category).includes(cteg)) category[cteg].push(info);
+		  		else {
+		  		  category[cteg] = [];
+			  		category[cteg].push(info);
+			  	}
         }
 			menu = global.footer + " *[ Beta✓ ]*\n\n"
 			menu += monospace(" ❏ Library : Baileys-MD") + "\n"
@@ -81,8 +81,8 @@ module.exports = {
 			menu += monospace(" ❏ Prefix : [ " + pref + " ]") + "\n"
 			menu += monospace(" ❏ Date : " + date) + "\n"
 			menu += monospace(" ❏ Time : " + time) + "\n"
-		        menu += monospace(" ❏ Speed :  " + processTime(msg.messageTimestamp, moment()) + " Seccond") + "\n\n"
-		        menu += "*This Bot script is : https://github.com/xzeera-id/Senkuu-MD*\n_Tanda ❌ berarti Error atau Fitur sedang Dinonaktifkan oleh Owner!!_\n\n"
+		  menu += monospace(" ❏ Speed :  " + processTime(msg.messageTimestamp, moment()) + " Seccond") + "\n\n"
+		  menu += "*This Bot script is : https://github.com/xzeera-id/Senkuu-MD*\n_Tanda ❌ berarti Error atau Fitur sedang Dinonaktifkan oleh Owner!!_\n\n"
 			menu += monospace(`Halo, @${sender.split("@")[0]} Here my Command List`) +`\n\n`;
 			const keys = Object.keys(category)
 			menu += "*乂 CATEGORY MENU*\n"
@@ -94,10 +94,10 @@ module.exports = {
 			  menu += `*乂 ${key.toUpperCase()}*\n`
 			  menu += `${category[key].map((cmd) => monospace(` × ${cmd.options.noPrefix ? "" : pref}${cmd.name} ${map.lockcmd.get(cmd.name) ? "❌" : ""}`)).join("\n")} ` + "\n\n"
 			}
-                        menu += `*Thanks To:*\n• Senkuu\n•ZeraaID\n•Zynfinity\n`
+			menu += `*Thanks To:*\n• Senkuu\n•ZeraaID\n•Zynfinity\n\n`
 			menu += `_Note : Ketik ${prefix}help <command> untuk melihat info command_`
 			
-			const buttons = [
+		/*	const buttons = [
            { buttonId: `.owner`,buttonText:{displayText: 'Owner'}, type : 1},
            { buttonId: `.ping`,buttonText:{displayText: 'Speed'}, type : 1}
            ]
@@ -109,10 +109,27 @@ module.exports = {
            headerType: 1,
            withTag: true
          }
-       conn.sendMessage(msg.from, buttonMessage, {quoted : msg})
+       conn.sendMessage(msg.from, buttonMessage, {quoted : msg})*/
+       
+       const { generateWAMessageFromContent } = require ("@adiwajshing/baileys")
+       prep = generateWAMessageFromContent(msg.from, { liveLocationMessage: { 
+         degreesLatitude: 35.685506276233525,
+         degreesLongitude: 139.75270667105852,
+caption: menu,
+sequenceNumber: 1656662972682001, timeOffset: 8600, jpegThumbnail: null,
+contextInfo: {mentionedJid: await parseMention(menu)}
+}}, { quoted: msg
+					})
+
+return conn.relayMessage(msg.from, prep.message, { messageId: prep.key.id })
       }
     } catch (e){
       global.error(msg.command, e, msg)
     }
   }
+}
+
+
+async function parseMention(text = ""){
+  return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
 }
