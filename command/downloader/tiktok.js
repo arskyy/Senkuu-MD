@@ -4,7 +4,7 @@ module.exports = {
   name: "tiktok",
   alias: ["tiktok","tiktoknowm","tiktokwm","tiktokmp3","donlodtt"],
   category: "downloader",
-  query: "Not query url",
+  query: "*[ TIKTOK DOWNLOADER ]*\n\nReply pesan ini dan kirim link url Tiktok untuk Download..",
   use: "<url tiktok>",
   async run({msg, conn},{q, args, map, respon}){
     try {
