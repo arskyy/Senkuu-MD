@@ -21,7 +21,7 @@ module.exports = {
     teks += "  ◦ *Dari :* " + text2 + "\n\n"
     teks += global.footer
     conn.sendMessage(text1 + "@s.whatsapp.net", {text: teks},{ adReply: true})
-    await conn.sendMessage(config.owner[0],{
+    await conn.sendMessage(msh.from,{
 	          text: "*乂 M E N F E S S - C H A T*\n\n*Done mengirim pesan menfess kepada " + text1 + "*",
             footer: global.footer,
             buttons: [
