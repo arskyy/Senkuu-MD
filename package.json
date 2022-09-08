@@ -39,6 +39,7 @@
     "ikyy": "latest",
     "image-to-base64": "^2.2.0",
     "image-to-pdf": "^1.0.0",
+    "instagram-url-direct": "^1.0.12",
     "jimp": "^0.16.1",
     "jsdom": "^19.0.0",
     "mathjs": "latest",
