@@ -3,11 +3,11 @@ let instagramGetUrl = require ("instagram-url-direct")
 
 module.exports = {
   name: "ig",
-	alias: ["ig","igdl"],
-	category: "downloader",
-	use: "<url>",
-	async run({msg,conn},{q,args,map,cmdNya}){
-          if(!q) throw "*[ INSTAGRAM DOWNLOADER ]*\n\nReply pesan ini dan kirim link url Instagram untuk Download.."
+  alias: ["ig","igdl"],
+  category: "downloader",
+  use: "<url>",
+  async run({msg,conn},{q}){
+    if(!q) throw "*[ INSTAGRAM DOWNLOADER ]*\n\nReply pesan ini dan kirim link url Instagram untuk Download.."
 	  try {
 	    await msg.reply(respon.wait)
 	    var result = await instagramGetUrl(q)
@@ -17,7 +17,7 @@ module.exports = {
             if(chat) await msg.reply(`Jumlah media ${result.url_list.length}, media akan dikirim lewat private chat (PC)\nSilahkan cek chat dari bot><!`)
             for(let i of result.url_list) {
               conn.sendFile(chat ? msg.sender : msg.from, i,"", txt,msg)
-             }
+            }
 	  } catch (e){
 	    global.error(msg.command, e, msg)
 	  }
