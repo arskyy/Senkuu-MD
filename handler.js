@@ -193,6 +193,7 @@ module.exports = handler = async (mek, conn, map) => {
     // FUNCTION DOWNLOADREPLY
     require('./lib/function/downloadReply').facebook(isCmd, msg, conn);
     require('./lib/function/downloadReply').tiktok(isCmd, msg, conn);
+    require('./lib/function/downloadReply').instagram(isCmd, msg, conn);
 
 	// [ Log ]
 	global.printLog(isCmd, sender, msg, body, groupName, isGroup);
