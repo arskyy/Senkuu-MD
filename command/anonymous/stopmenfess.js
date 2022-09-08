@@ -9,7 +9,7 @@ module.exports = {
     const { body, reply, from, sender, command } = msg;
     find = Object.values(conn.menfess).find(menpes => [menpes.a, menpes.b].includes(msg.sender))
     if(!find) return msg.reply("Kamu belum memulai menfess..")
-    conn.sendMessage(find.a, {text: "_Partner meninggalkan Obrolan.._"})
+    conn.sendMessage(find, {text: "_Partner meninggalkan Obrolan.._"})
     await reply("*^Done..*")
     delete conn.menfess[find.id]
     return !0
