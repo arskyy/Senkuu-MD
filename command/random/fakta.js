@@ -1,21 +1,17 @@
-const fetch = require("node-fetch")
+const fs = require('fs')
 
 module.exports = {
   name: "fakta",
   alias: ["fakta"],
   category: "random",
-  async run({msg,conn}) {
+  wait: false,
+  async run({msg, conn},{cmdNya}){
     try {
-   //   await msg.reply(respon.wait)
-	fetch("https://raw.githubusercontent.com/ChandraSans/txt/main/fakta.txt")
-		.then(res => res.text())
-        	.then(body => {
-            	let data = body.split('\n')
-            	let sans = data[Math.floor(Math.random() * data.length)]
-            	msg.reply(`${sans}`) // ChandraSans
-        })
+	let fakta = JSON.parse(fs.readFileSync(`./lib/storage/fakta.json`))
+	let getData = fakta[Math.floor(Math.random() * fakta.length)]
+	msg.reply(getData); // ChandraSans
     } catch (e){
-      global.error(msg.command, e, msg)
+      global.error(cmdNya, e, msg)
     }
   }
 }
