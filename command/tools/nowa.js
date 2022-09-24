@@ -26,9 +26,9 @@ module.exports = {
               random = 10000
             }
           
-            var nomerny = `*List Nomer*\n\nPunya Bio/status/info\n\n`
-            var no_bio = `\nTanpa Bio/status/info || \nHey there! I am using WhatsApp.\n`
-            var no_watsap = `\nTidak Terdaftar\n`
+            var nomerny = `*Number List*\n\nHave Bio/status/info\n\n`
+            var no_bio = `\nNo Bio/status/info || \nHey there! I am using WhatsApp.\n`
+            var no_watsap = `\nNot listed\n`
           
             for (let i = 0; i < random; i++) {
               var nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -61,7 +61,7 @@ module.exports = {
                   no_bio += `wa.me/${anu[0].jid.split("@")[0]}\n`
                   
                 } else {
-                  nomerny += `@${anu[0].jid.split("@")[0]}\nBio Name : ${anu1.status}\nTahun : ${moment(anu1.setAt).tz('Asia/Jakarta').format('ddd DD MMM YYYY')}\n\n`
+                  nomerny += `@${anu[0].jid.split("@")[0]}\nBio Name : ${anu1.status}\nYear : ${moment(anu1.setAt).tz('Asia/Jakarta').format('ddd DD MMM YYYY')}\n\n`
                   
                 }
               } catch {
