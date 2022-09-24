@@ -14,7 +14,7 @@ module.exports = {
 	  	await msg.reply(`Delete successfully, and is restarting`);
 	  	process.send("reset");
 	  } catch (e){
-	    await msg.reply("*Error, mungkin file tidak ada!!*\n\n" + String(e))
+	    await msg.reply("*Error, maybe the file doesn't exist!!*\n\n" + String(e))
 	    //global.error(cmdNya, e, msg)
 	  }
 	},
