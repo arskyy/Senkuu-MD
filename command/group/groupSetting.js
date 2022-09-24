@@ -22,7 +22,7 @@ module.exports = {
       
       default:
         if(!q) throw `
-*Format salah! Contoh :*
+*Format salah! Example :*
   *× .${msg.command} close/0*
   *× .${msg.command} open/1*
 
