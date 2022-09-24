@@ -12,12 +12,12 @@ module.exports = {
       afk[msg.sender] = {
         id: msg.sender,
         time: Date.now(),
-        reason: q ? q : "Yntkts",
+        reason: q ? q : "No reason",
       }
       await fs.writeFileSync("./lib/database/afk.json", JSON.stringify(afk));
       txt = "*AFK MODE*\n\n"
       txt += msg.pushName + " is now Afk!!\n"
-      txt += `Reason : ${q ? q : "Yntkts"}`
+      txt += `Reason : ${q ? q : "No reason"}`
       msg.reply(txt)
     } catch (e) {
       global.error(msg.command, e, msg)
