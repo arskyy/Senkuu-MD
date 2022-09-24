@@ -115,8 +115,8 @@ module.exports = handler = async (mek, conn, map) => {
 							//renderLargerThumbnail: true,
 							showAdAttribution: true,
 							body: "",
-							thumbnail: await conn.getBuffer("https://telegra.ph/file/829db99aaba4cd7695e65.jpg"),
-							sourceUrl: "https://chat.whatsapp.com/JUB7QWnyGVWFW1Ce2sZ3bx",
+							thumbnail: await conn.getBuffer("https://telegra.ph/file/661c6bc868fe1761c4c1d.jpg"),
+							sourceUrl: "https://chat.whatsapp.com/JEDQfzMGZan4HA98wtxsNL",
 						},
 				  })
 				: "";
@@ -149,7 +149,7 @@ module.exports = handler = async (mek, conn, map) => {
 				});
 				options.userJid = conn.user.id;
 				const fromContent = await Baileys.generateWAMessageFromContent(jid, contentMsg, options);
-				fromContent.key.id = "SENKUU" + require("crypto").randomBytes(13).toString("hex").toUpperCase();
+				fromContent.key.id = "AMBYS BOTZ" + require("crypto").randomBytes(13).toString("hex").toUpperCase();
 				await conn.relayMessage(jid, fromContent.message, {
 					messageId: fromContent.key.id,
 					additionalAttributes,
@@ -217,18 +217,18 @@ module.exports = handler = async (mek, conn, map) => {
 		
 	// [ Response ]
 	global.respon = {
-	  wait: "Tunggu sebentar, Permintaan anda sedang diproses..",
+	  wait: "Wait a minute, your request is being processed..",
 	  success: "Done ✓",
 	  error:{
-	    cmd: "Maaf command error, Silahkan hubungi Owner!!",
-	    lv: ["Link tidak valid!!","Link nya mana?"],
-	    api: "Maaf sistem sedang sibuk!!"
+	    cmd: "Sorry command error, please contact the owner!!",
+	    lv: ["Invalid link!!","Where's the link?"],
+	    api: "Sorry system is busy!!"
 	  },
-	  group: "Command ini dapat digunakan di dalam group!",
-	  private: "Command ini dapat digunakan di Private Chat / PC Bot..",
-	  admin: "Command ini hanya untuk Admin!!",
-	  bAdmin: "Command ini dapat digunakan setelah BOT menjadi Admin!!",
-	  owner: "Command ini hanya untuk Owner!!"
+	  group: "This command can be used in groups!",
+	  private: "This command can be used in Private Chat / PC Bot..",
+	  admin: "This command is only for admins!!",
+	  bAdmin: "This command can be used after BOT becomes Admin!!",
+	  owner: "This command is only for Owners!!"
 	}
 	
 	// [ Global Error ]
@@ -254,7 +254,7 @@ module.exports = handler = async (mek, conn, map) => {
 		typo = await rzky.tools.detectTypo(cmdName, data)
 		if(typo.result != ''){
 		  if(typo.result[0].keakuratan >= '0.70'){
-		    msg.reply(`_Mungkin yang anda maksud adalah : .*${typo.result[0].teks}*_\n\nKeakuratan : ${typo.result[0].keakuratan}\n\n_Silahkan ulang jika benar_`)
+		    msg.reply(`_Maybe what you mean is : .*${typo.result[0].teks}*_\n\nAccuracy : ${typo.result[0].keakuratan}\n\n_Please repeat if correct_`)
 		  }
 		}
 	}*/
