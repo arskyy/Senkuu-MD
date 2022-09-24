@@ -8,7 +8,7 @@ module.exports = {
 	  try {
 	    switch(cmdNya){
 	      case "report":
-	        if(!q) throw "Mau laporin apa??"
+	        if(!q) throw "What do you want to report???"
 	        let group = await conn.groupMetadata(from);
 	        report = "├ User  : @" + sender.split("@")[0] + "\n";
 	        report += "├ Laporan : " + q + "\n"
@@ -18,23 +18,23 @@ module.exports = {
 	          text: report,
             footer: global.footer,
             buttons: [
-              { buttonId: `.reportreject ${msg.from} ${sender} ${msg.key.id}`, buttonText: { displayText: 'Tolak' }, type: 1 },
-              { buttonId: `.reportblock ${group.id} ${sender} ${msg.key.id}`, buttonText: { displayText: 'Tolak (Block)' }, type: 1 },
-              { buttonId: `.reportacc ${group.id} ${msg.key.id}`, buttonText: { displayText: 'Terima' }, type: 1 }
+              { buttonId: `.reportreject ${msg.from} ${sender} ${msg.key.id}`, buttonText: { displayText: 'Reject' }, type: 1 },
+              { buttonId: `.reportblock ${group.id} ${sender} ${msg.key.id}`, buttonText: { displayText: 'Reject (Block)' }, type: 1 },
+              { buttonId: `.reportacc ${group.id} ${msg.key.id}`, buttonText: { displayText: 'Accept' }, type: 1 }
               ],
             headerType: 1,
             withTag : true 
 	        },{quoted : msg});
-	        await reply('Laporan sudah disampaikan kepada Owner')
+	        await reply('The report has been submitted to the Owner')
 	        break;
 	        
 	      case "reportacc":
 	        if(!own)return reply(respon.owner)
-	        if(!msg.quoted) throw "Reply pesan nya"
+	        if(!msg.quoted) throw "Reply to the message"
           if(!args[0]) return
           if(!args[1]) return
-          lap = '*Laporan sudah diterima oleh Owner dan akan diproses*\n\n'
-          lap += "Detail laporan\n"
+          lap = '*The report has been received by the owner and will be processed*\n\n'
+          lap += "Report details\n"
           lap +=  msg.quoted.message.buttonsMessage.contentText
           su = store.messages[args[0]].array.find(pe => pe.key.id === args[1]) 
           conn.sendMessage(args[0], {text: lap, withTag : true}, {quoted: su})
@@ -47,8 +47,8 @@ module.exports = {
           if(!args[0]) return
           if(!args[1]) return
           if(!args[2]) return
-          lap = '*Laporan ditolak, anda akan diblock oleh bot*\n\n'
-          lap += `Detail Laporan\n`
+          lap = '*Report rejected, you will be blocked by bot*\n\n'
+          lap += `Report Details\n`
           lap +=  msg.quoted.message.buttonsMessage.contentText
           su = store.messages[args[0]].array.find(pe => pe.key.id === args[2]) 
           conn.sendMessage(args[0], {text: lap, withTag : true}, {quoted: su})
@@ -62,8 +62,8 @@ module.exports = {
           if(!args[0]) return
           if(!args[1]) return
           if(!args[2]) return
-          lap = '*Laporan ditolak*\n\n'
-          lap += `Detail Laporan\n`
+          lap = '*Report rejected*\n\n'
+          lap += `Report Details\n`
           lap +=  msg.quoted.message.buttonsMessage.contentText
           su = store.messages[args[0]].array.find(pe => pe.key.id === args[2]) 
           conn.sendMessage(args[0], {text: lap, withTag : true}, {quoted: su})
