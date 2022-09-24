@@ -1,17 +1,17 @@
 {
   "thumb": "https://telegra.ph/file/f9b2ed3ff30d538f086ae.jpg",
   "namebot": "Senkuu",
-  "botNumber": "6283823742094@s.whatsapp.net",
-  "owner": ["6281312960392@s.whatsapp.net"],
-  "instagram": "https://instagram.com/repannthisori021_",
-  "author": "Yntkts",
+  "botNumber": "6282122379874@s.whatsapp.net",
+  "owner": ["6282221792667@s.whatsapp.net"],
+  "instagram": "https://instagram.com/prm2.0",
+  "author": "BOTCAHX",
   "session": "senku-md",
-  "email": "yntkts@gmail.com",
+  "email": "tioclkp02@gmail.com",
   "self": false,
-  "limit": { "limitUser": 30, "gameLimitUser": 10, "gameLimitPremium": 30 },
+  "limit": { "limitUser": 100, "gameLimitUser": 100, "gameLimitPremium": 300 },
   "packInfo":{
-    "packname": "Senkuu",
-    "author": "Beta ✓"
+    "packname": "Recode",
+    "author": "Senku-md ✓"
   },
   "ignore": {
 		"directory": ["umum"]
