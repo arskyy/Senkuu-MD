@@ -2,9 +2,9 @@ module.exports = {
 	name: "addcmd",
 	alias: ["addcmd"],
 	category: "private",
-	desc: "Menyimpan / menambah file",
+	desc: "Save / add files",
 	isOwner: true,
-	query: "Masukkan nama path file,\n example: .addcmd main/fitur",
+	query: "Enter the file pathname,\n example: .addcmd main/fitur",
 	use: "<name file>\nExample .addcmd main/menu",
 	isQuoted: true,
 	async run({ msg, conn }, { q, map, args, cmdNya }) {
