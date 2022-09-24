@@ -2,7 +2,7 @@ module.exports = {
   name: "jadibot",
   alias: ["jadibot"],
   category: "jadibot",
-  desc: "Numpang bot",
+  desc: "ride a bot",
   isPrivate: true,
   async run({conn, msg},{map}){
    // if(config.botNumber != config.botNumber) return msg.reply("_Tidak bisa membuat bot di dalam bot.._")
