@@ -5,10 +5,11 @@ module.exports = {
   alias: ["sc","source"],
   category: "info",
   async run({msg, conn}){
-    ss = await far.tools.ssweb("https://github.com/xzeera-id/Senkuu-MD")
+    ss = await far.tools.ssweb("https://github.com/BOTCAHX")
     repo = await sc.ghrepo("Senkuu-MD")
     txt = "*乂 S O U R C E - B O T*\n\n"
-    txt += ` • *SC : https://github.com/xzeera-id/Senkuu-MD*\n`
+    txt += ` • *SC Original : https://github.com/xzeera-id/Senkuu-MD*\n`
+    txt += ` • *SC Recode : https://github.com/BOTCAHX/Senkuu-MD*\n`
     txt += ` • *Watch : ${repo.items[0].watchers}*\n`
     txt += ` • *Forks : ${repo.items[0].forks}*\n`
     txt += ` • *Language : ${repo.items[0].language}*\n`
