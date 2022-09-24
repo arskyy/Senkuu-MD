@@ -121,7 +121,7 @@ async function start(){
   
   console.clear();
   console.log(color('------------------------------------------------------------------------', 'white'))
-  console.log(color(figlet.textSync('Senkuu - MD', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
+  console.log(color(figlet.textSync('Senkuu - MD Recode', {font: 'Standard',horizontalLayout: 'default',vertivalLayout: 'default',width: 80,whitespaceBreak: false }), 'red'))
   console.log(color('------------------------------------------------------------------------', 'white'))
   console.log(color('[CREATOR]', 'aqua'), color(config.author, 'magenta'))
   console.log(color('[BOT]', 'aqua'), color('BOT is now Online!', 'magenta'))
@@ -190,7 +190,7 @@ async function start(){
 	  for(let sen of senku){
 	    if(sen.isGroup == false){
 	      if(sen.status == "offer"){
-	        teks = `*${conn.user.name}* tidak bisa menerima panggilan ${sen.isVideo ? `video` : `suara`}. Maaf kamu akan di block!. Jika tidak sengaja, Silahkan hubungi owner!\n\nNomor Owner :\n${config.owner.map((a) => `${a.split(`@`)[0]} | ${conn.getName(a).includes("+62") ? "No Detect" : conn.getName(a)
+	        teks = `*${conn.user.name}* can't receive calls ${sen.isVideo ? `video` : `suara`}. Sorry you will be blocked!. If by accident, Please contact the owner!\n\nOwner Number :\n${config.owner.map((a) => `${a.split(`@`)[0]} | ${conn.getName(a).includes("+62") ? "No Detect" : conn.getName(a)
 							}`).join("\n")}`
 				  conn.sendMessage(sen.from, {text : teks})
 					await require("delay")(5000);
