@@ -18,7 +18,7 @@
     "axios": "^0.26.1",
     "bluebird": "^3.7.2",
     "brainly-scraper-v2": "1.1.2",
-    "xfarr-api": : "github:xfar05/xfarr-api",
+    "xfarr-api": "github:xfar05/xfarr-api",
     "caliph-api": "^0.4.0",
     "chalk": "4.1.2",
     "cheerio": "1.0.0-rc.10",
