@@ -11,16 +11,16 @@ module.exports = {
          break
 
         case "self":
-          if (map.isSelf) throw "Sudah berada dalam mode self";
+          if (map.isSelf) throw "Already in self mode";
 				  map.isSelf = true;
-			  	await msg.reply("Sukses mengubah ke mode self");
+			  	await msg.reply("Successfully change to self mode");
           break
 
         case 'publik':
         case "public":
-          if (!map.isSelf) throw "Sudah berada dalam mode public";
+          if (!map.isSelf) throw "Already in public mode";
 			   	map.isSelf = false;
-			  	await msg.reply("Sukses mengubah ke mode public");
+			  	await msg.reply("Successfully changing to public mode");
           break
       }
     } catch (e){
