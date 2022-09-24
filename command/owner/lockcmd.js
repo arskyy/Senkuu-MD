@@ -2,11 +2,11 @@ module.exports = {
 	name: "lockcmd",
 	category: "private",
 	isOwner: true,
-	desc: "menoaktifkan fitur ",
+	desc: "disable features ",
 	use: `<name command | alasan>`,
-	query: `Masukan Parameter Nama Command dan alasan, example: #lockcmd help | off`,
+	query: `Enter Command Name Parameters and reason, example: #lockcmd help | off`,
 	async run({ msg, conn }, { q, map, args, arg }) {
-		if (!args[2]) throw "Masukan alasan, example: #lockcmd play | tidur";
+		if (!args[2]) throw "Enter reason, example: #lockcmd play | tidur";
 		var data = [...map.command.keys()];
 		[...map.command.values()]
 			.map((x) => x.alias)
