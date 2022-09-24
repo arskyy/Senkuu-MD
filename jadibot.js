@@ -60,7 +60,7 @@ const ReadFitur = () => {
 				isGroup: false,
 				isBotAdmin: false,
 				query: false,
-				isLimit: false,
+				isLimit: true,
 				isLimitGame: false,
 				isPremium: false,
 				isPrivate: false,
