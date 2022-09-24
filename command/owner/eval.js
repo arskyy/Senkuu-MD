@@ -9,7 +9,7 @@ module.exports = {
 	query: `Masukan Parameter Code`,
 	async run({ msg, conn }, { q, map, args, Baileys, arg, prefix, response, chat }) {
 	  function _(stdout){
-	    msg.reply("```" + `root@Senkuu:\n${stdout}` + "```")
+	    msg.reply("```" + `result@eval:\n${stdout}` + "```")
 	  }
 		let kode = msg.body.trim().split(/ +/)[0];
 		let teks;
