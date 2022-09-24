@@ -49,23 +49,23 @@ module.exports = {
       var { upload, download } = await checkBandwidth()
                  
       text = "BOT STAT\n"
-	  	text += ` × Ping : ${ping(msg.messageTimestamp, Date.now())} second(s)\n`
-	  	text += ` × Speed : ${speed} milidetik\n`
-	  	text += ` × Runtime : ${convertTime(map.uptime.getTime())}\n\n`
+	  	text += ` •> Ping : ${ping(msg.messageTimestamp, Date.now())} second(s)\n`
+	  	text += ` •> Speed : ${speed} milidetik\n`
+	  	text += ` •> Runtime : ${convertTime(map.uptime.getTime())}\n\n`
       text += "HOST\n"
       text += ` × Arch: ${os.arch()}\n`
       text += ` × CPU: ${os.cpus()[0].model}${
 			os.cpus().length > 1 ? " (" + os.cpus().length + "x)" : ""}\n`
-	  	text += ` × Release: ${os.release()}\n`
-		  text += ` × Version: ${os.version()}\n`;
-		  text += ` × Memory: ${formatSize(os.totalmem() - os.freemem())} / ${formatSize(os.totalmem())}\n`;
-	  	text += ` × Platform: ${os.platform()}\n\n`;
+	  	text += ` •> Release: ${os.release()}\n`
+		  text += ` •> Version: ${os.version()}\n`;
+		  text += ` •> Memory: ${formatSize(os.totalmem() - os.freemem())} / ${formatSize(os.totalmem())}\n`;
+	  	text += ` ×}•> Platform: ${os.platform()}\n\n`;
 	  	text += `STATISTIK\n`
-	  	text += ` × Download : ${download}\n`
-	  	text += ` × Upload : ${upload}\n`
-	  	text += ` × Storage : ${totalMemMb} MB\n`
-	  	text += ` × Used Storage : ${usedMemMb} MB\n`
-	  	text += ` × Free Storage : ${freeMemMb} MB`
+	  	text += ` •> Download : ${download}\n`
+	  	text += ` •> Upload : ${upload}\n`
+	  	text += ` •> Storage : ${totalMemMb} MB\n`
+	  	text += ` •> Used Storage : ${usedMemMb} MB\n`
+	  	text += ` •> Free Storage : ${freeMemMb} MB`
 	  	await msg.reply(monospace(text))
 	  } catch (e){
 	    global.error('ping',e, msg)
