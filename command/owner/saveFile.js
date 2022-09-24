@@ -2,7 +2,7 @@ module.exports = {
   name: "savefile",
   alias: ["sf","sv","safe","save"],
   category: "private",
-  query: `Masukan nama file, Example : \n × .save index.js\n × .save command/main/main.js ( Command )\n × .save lib/function/function.js\n × .save lib/function.js\n\n*Note : _Diatas hanya contoh!*_`,
+  query: `Enter a file name, Example : \n × .save index.js\n × .save command/main/main.js ( Command )\n × .save lib/function/function.js\n × .save lib/function.js\n\n*Note : _Above is just an example!*_`,
   isOwner: true,
   isQuoted: true,
   async run({msg, conn},{q, args}){
