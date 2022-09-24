@@ -4,7 +4,7 @@ module.exports = {
   name: "blacklist",
   alias: ["blacklist", "addtoxic","deltoxic", "deletetoxic","listtoxic"],
   category: "group",
-  desc: ['Untuk menambahkan/mengurangi filter kata terlarang di group', '.addtoxic <kata>'],
+  desc: ['To add/remove forbidden word filter in group', '.addtoxic <word>'],
   isAdmin: true,
   isGroup: true,
   async run({conn, msg},{args, q}){
@@ -13,19 +13,19 @@ module.exports = {
     switch(command){
       case "blacklist":
         txt = global.footer + "\n\n"
-        txt += "*⚠️ Blacklist tersedia :*\n"
+        txt += "*⚠️ Blacklist available :*\n"
         txt += " × addtoxic" + "\n"
         txt += " × deletetoxic" + "\n"
         txt += " × listtoxic" + "\n\n"
         txt += "*Example Penggunaan :* \n"
         txt += " × .addtoxic <kata toxic>" + "\n"
         txt += " × .deletetoxic <kata yg tersedia>" + "\n"
-        txt += " × .listtoxic [ Menampilkan kata toxic yang terdaftar ]"
+        txt += " × .listtoxic [ Showing the registered toxic word ]"
         reply(txt)
         break;
       
       case "addtoxic":
-        if(!q) throw "Masukan kata terlarang!!"
+        if(!q) throw "Enter forbidden words!!"
           try {
             const word = JSON.parse(fs.readFileSync('./lib/database/toxic.json'))
             if(word[from] == undefined){
@@ -35,10 +35,10 @@ module.exports = {
               }
             await fs.writeFileSync('./lib/database/toxic.json',JSON.stringify(word))
             }
-            if(word[from].kata.includes(q)) return reply(`Kata ${q} sudah ada didalam blacklist!`)
+            if(word[from].kata.includes(q)) return reply(`Kata ${q} already on the blacklist!`)
             word[from].kata.push(q)
             await fs.writeFileSync('./lib/database/toxic.json',JSON.stringify(word))
-            reply(`Kata ${q} berhasil dimasukkan kedalam kata terlarang`)
+            reply(`Kata ${q} successfully entered into the forbidden word`)
             
           } catch (e){
             global.error(command, e, msg)
@@ -47,10 +47,10 @@ module.exports = {
 
      case "deletetoxic":
      case "deltoxic":
-       if(!q) throw "Masukan kata terlarang!!"
+       if(!q) throw "Enter forbidden words!!"
        try {
          const word = JSON.parse(fs.readFileSync('./lib/database/toxic.json'))
-         if(!word[from].kata.includes(q)) return msg.reply(`Kata ${q} tidak ada didalam kata blacklist!`)
+         if(!word[from].kata.includes(q)) return msg.reply(`Kata ${q} not in the word blacklist!`)
          word[from].kata.splice(word[from].kata.indexOf(q), 1)
          await fs.writeFileSync('./lib/database/toxic.json',JSON.stringify(word))
          reply(`Kata ${q} berhasil dihapus dari kata blacklist`)
