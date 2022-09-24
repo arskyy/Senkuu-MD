@@ -4,7 +4,7 @@ module.exports = {
   name: ["help"].map((v) => v + " <command>"),
   alias: ["help"],
   category: "main",
-  desc: ['Melihat informasi dari Command', '.help <Command>'],
+  desc: ['View information from Command', '.help <Command>'],
   async run({msg,conn},{ args, q, map}) {
       if(!q) return msg.reply("Example : .help menu",{adReply: true})
 			const name = q.toLowerCase();
