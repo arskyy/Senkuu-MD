@@ -1,7 +1,7 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 # Bot WhatsApp Multiple Auth 
  <p align="center">
-<img width="" src="https://img.shields.io/github/repo-size/BOTCAHX/RT-X-MD?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+<img width="" src="https://img.shields.io/github/repo-size/BOTCAHX/Senkuu-MD?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
 
 > **Warning**: 
