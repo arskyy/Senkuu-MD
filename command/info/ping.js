@@ -53,13 +53,13 @@ module.exports = {
 	  	text += ` •> Speed : ${speed} milidetik\n`
 	  	text += ` •> Runtime : ${convertTime(map.uptime.getTime())}\n\n`
       text += "HOST\n"
-      text += ` × Arch: ${os.arch()}\n`
-      text += ` × CPU: ${os.cpus()[0].model}${
+      text += ` •> Arch: ${os.arch()}\n`
+      text += ` •> CPU: ${os.cpus()[0].model}${
 			os.cpus().length > 1 ? " (" + os.cpus().length + "x)" : ""}\n`
 	  	text += ` •> Release: ${os.release()}\n`
 		  text += ` •> Version: ${os.version()}\n`;
 		  text += ` •> Memory: ${formatSize(os.totalmem() - os.freemem())} / ${formatSize(os.totalmem())}\n`;
-	  	text += ` ×}•> Platform: ${os.platform()}\n\n`;
+	  	text += ` >}•> Platform: ${os.platform()}\n\n`;
 	  	text += `STATISTIK\n`
 	  	text += ` •> Download : ${download}\n`
 	  	text += ` •> Upload : ${upload}\n`
