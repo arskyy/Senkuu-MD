@@ -1,13 +1,15 @@
-<h1 align='center'>Welcome👋 :wave:</h1>
-
-<div align="center">
-<img src="https://telegra.ph/file/3024b63e3b52707d6a696.jpg" alt="SEENKU MD" width="300" />
-<p align="center">
- <img src="https://komarev.com/ghpvc/?username=xzeera-id&color=blue&label=Views" />
- </p>
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+# Bot WhatsApp Multiple Auth 
+ <p align="center">
+<img width="" src="https://img.shields.io/github/repo-size/BOTCAHX/RT-X-MD?color=red&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
-<h1 align="center">Senkuu MD</h1>
-</div>
+
+> **Warning**: 
+>  Recode Dari base Senkuu-MD 
+
+> Kalo mau fork sc orinya kunjungi github nya xzeera-id
+
+[Base Original](https://github.com/xzeera-id/Senkuu-MD)
 
 ## Sorotan
 
