@@ -122,7 +122,7 @@ const jadibot = async (msg, conn) => {
       let { version, isLatest } = await fetchLatestBaileysVersion();
       const conn = await makeWaSocket({
         auth: state,
-        browser: [`Jadibot`, "Chrome", "1.0.0"],
+        browser: [`TioXd`, "Chrome", "1.0.0"],
 	    	logger: log({ level: "silent" }),
 	    	version,
       })
