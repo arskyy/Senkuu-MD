@@ -32,11 +32,11 @@ global.givegame = givegame
 global.cekGLimit = cekGLimit;
 
 
-global.shp = " ×"
+global.shp = " •>"
 global.config = require("./lib/config.json");
 global.sc = require('./lib/scrape');
 global.tool = require('./lib/tools');
-global.footer = "*_乂 Simple WhatsApp - Bot_*"
+global.footer = "*_乂 Whhatsapp Bot_*"
 const IkyyClient = require("ikyy");
 global.rzky = new IkyyClient();
 const Database = require('./lib/Database')
