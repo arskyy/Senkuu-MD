@@ -9,7 +9,7 @@ module.exports = {
 	noPrefix: true,
 	isOwner: true,
 	async run({ msg, conn }, { q }) {
-		await msg.reply("Executing...");
+		await msg.reply("root@tioxd....");
 		let o;
 		try {
 			o = await exec(q);
