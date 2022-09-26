@@ -75,7 +75,7 @@ module.exports = {
 			  		category[cteg].push(info);
 			  	}
         }
-			menu = global.footer + " *[ Recode Dari Senkuu-MD ]*\n\n"
+			menu = global.footer + " *[ BOTCAHX ]*\n\n"
 			menu += monospace(" ❏ Library : Baileys-MD") + "\n"
 			menu += monospace(" ❏ Author : " + "@" + config.owner[0].split("@")[0] )+ "\n"
 			menu += monospace(" ❏ Prefix : [ " + pref + " ]") + "\n"
@@ -94,7 +94,7 @@ module.exports = {
 			  menu += `*乂 ${key.toUpperCase()}*\n`
 			  menu += `${category[key].map((cmd) => monospace(` × ${cmd.options.noPrefix ? "" : pref}${cmd.name} ${map.lockcmd.get(cmd.name) ? "❌" : ""}`)).join("\n")} ` + "\n\n"
 			}
-			menu += `*Thanks To:*\n• Senkuu\n•ZeraaID\n•Zynfinity\n•BOTCAHX\n•XiaoSan\n\n`
+			menu += `*Thanks To:*\n• Senkuu\n• ZeraaID\n• Zynfinity\n• BOTCAHX\n\n`
 			menu += `_Note : Type ${prefix}help <command> to view command info_`
 			
 		/*	const buttons = [
@@ -104,7 +104,7 @@ module.exports = {
         const buttonMessage = {
            image: {url: "https://telegra.ph/file/642a95448d0d2d4750a37.jpg"},
            caption: menu,
-           footer: "Bot Masih dalam tahap Perkembangan",
+           footer: "Bot Still in Development stage",
            buttons: buttons,
            headerType: 1,
            withTag: true
