@@ -1,17 +1,17 @@
 {
   "thumb": "https://telegra.ph/file/f9b2ed3ff30d538f086ae.jpg",
-  "namebot": "Senkuu",
-  "botNumber": "6283823742094@s.whatsapp.net",
-  "owner": ["6281312960392@s.whatsapp.net"],
-  "instagram": "https://instagram.com/repannthisori021_",
-  "author": "Yntkts",
+  "namebot": "ofc.syadBotzV2",
+  "botNumber": "6285771756455@s.whatsapp.net",
+  "owner": ["6285883225704@s.whatsapp.net"],
+  "instagram": "https://instagram.com/baukpandan_1324",
+  "author": "ofc.syadBotzV2",
   "session": "senku-md",
-  "email": "yntkts@gmail.com",
+  "email": "SyadBelz@gmail.com",
   "self": false,
   "limit": { "limitUser": 30, "gameLimitUser": 10, "gameLimitPremium": 30 },
   "packInfo":{
-    "packname": "Senkuu",
-    "author": "Beta ✓"
+    "packname": "ofc.syadBotzV2",
+    "author": "ofc.syadBotzV2 ✓"
   },
   "ignore": {
 		"directory": ["umum"]
