@@ -14,17 +14,17 @@ const {
 	fetchLatestBaileysVersion,
 	makeInMemoryStore,
 	default: Baileys,
-	useSingleFileAuthState,
+	useMultiFileAuthState,
 	jidDecode,
 	DisconnectReason,
 	delay,
 } = require("@adiwajshing/baileys");
 
 try {
-var { state, saveState } = useSingleFileAuthState(path.join(__dirname, `./lib/database/${config.session ? config.session : "session"}.json`), log({ level: "silent" }));
+var { state, saveCreds } = useMultiFileAuthState(path.join(__dirname, `./lib/database/${config.session ? config.session : "session"}`), log({ level: "silent" }));
 } catch {
 fs.unlinkSync(`./lib/database/${config.session ? config.session : "session"}.json`)
-var { state, saveState } = useSingleFileAuthState(`./lib/database/${config.session ? config.session : "session"}.json`);
+var { state, saveCreds } = useMultiFileAuthState(`./lib/database/${config.session ? config.session : "session"}`);
 }
 
 
@@ -139,7 +139,7 @@ async function start(){
 	
 	store.bind(conn.ev);
 	
-	conn.ev.on("creds.update", saveState);
+	conn.ev.on("creds.update", saveCreds);
 	conn.ev.on("connection.update", async (ktl) => {
 	  const { lastDisconnect, connection } = ktl;
 	  if (connection == "connecting") console.log(chalk.cyan('Connecting to the WhatsApp bot...'))
