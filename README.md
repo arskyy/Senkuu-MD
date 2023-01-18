@@ -45,8 +45,14 @@ WhatsApp Bot Multi Device
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=xzeera-id&show_icons=true&hide=issues&theme=radical)](https://github-readme-stats.vercel.app)
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs?username=xzeera-id&layout=compact&theme=radical)](https://github-readme-stats.vercel.app)
 
-## Request Fitur To
+## Request Fitur/Report Error To
+Kamu Nanya? kamu Bertanya tanya? Yaudah aku kasih tau yah!!
+Kalau mau request or report, chat kontak di bawah ini yah
+
 [`Creator Here`](https://wa.me/6281312960392?text=Bang+req+fitur) 
+[`Dm Instagram`](https://instagram.com/arskydev)
+
+Rawwr
 
 ## Instalasi On Termux
 
